@@ -11,7 +11,7 @@ class datasiswa extends CI_Controller
         $this->load->view('view-form-siswa');
     }
 
-    public function print()
+    public function cetak()
     {
         $this->form_validation->set_rules('Nama', 'Nama Siswa',
         'required|min_length[3]', [
@@ -31,6 +31,12 @@ class datasiswa extends CI_Controller
             'min_length' => 'Kelas terlalu pendek'
         ]);
 
+        $this->form_validation->set_rules('Lahir', 'Tanggal Lahir',
+        'required|min_length[4]', [
+            'required' => 'Tempat Lahir Harus diisi',
+            'min_length' => 'Tempat Lahir terlalu pendek'
+        ]);
+
         $this->form_validation->set_rules('Tempat', 'Tempat Lahir',
         'required|min_length[4]', [
             'required' => 'Tempat Lahir Harus diisi',
@@ -44,10 +50,9 @@ class datasiswa extends CI_Controller
         ]);
 
         
-        if ($this->form_validation->run() != true) 
-        {
+        if ($this->form_validation->run() != true) {
             $this->load->view('view-form-siswa');
-        }
+            }
         else
         {
             $data = [
@@ -60,7 +65,7 @@ class datasiswa extends CI_Controller
                         'Jen_kel' => $this->input->post('Jen_kel'),
                         'Agama' => $this->input->post('Agama')
                     ];
-            $this->load->view('data_siswa', $data);
+        $this->load->view('view-data-siswa', $data);
         }
     }
 }

@@ -66,7 +66,7 @@
 
                 <tr>
                 <td colspan="3" align="center">
-                        <a href="<?= base_url('datasiswa');?>"><h4>BACK</h4></a>
+                        <a href="<?= base_url('Datasiswa');?>"><h4>BACK</h4></a>
                     </td>
                 </tr>
             </table>
